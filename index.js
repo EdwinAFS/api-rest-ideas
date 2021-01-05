@@ -1,0 +1,18 @@
+const container = require("./src/server/container");
+require("./src/config");
+
+const server = container.resolve("server");
+
+const mongoose = require("mongoose");
+mongoose.set("useCreateIndex", true);
+
+mongoose
+	.connect(process.env.MONGO_URI, {
+		useUnifiedTopology: true,
+		useNewUrlParser: true,
+		useFindAndModify: true,
+	})
+	.then(() => {
+		server.start();
+	})
+	.catch(console.log);
