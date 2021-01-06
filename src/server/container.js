@@ -16,6 +16,10 @@ const { HomeRoutes } = require('../routes/index.routes');
 // Models
 const { Idea, User, Comment } = require('../models');
 
+// Repository
+const { IdeaRepository, UserRepository, CommentRepository } = require('../repositories');
+
+
 // Container
 const container = createContainer();
 
@@ -37,6 +41,11 @@ container
 	})
 	.register({
 		HomeRoutes: asFunction( HomeRoutes ).singleton()
+	})
+	.register({
+		IdeaRepository: asClass( IdeaRepository ).singleton(),
+		UserRepository: asClass( UserRepository ).singleton(),
+		CommentRepository: asClass( CommentRepository ).singleton()
 	});
 
 module.exports = container;
