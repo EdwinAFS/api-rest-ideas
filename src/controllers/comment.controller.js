@@ -10,10 +10,6 @@ class CommentController{
 		return res.send( await commentService.get(commentId) );
 	}
 
-	async getAll(req, res){
-		return res.send( await commentService.getAll() );
-	}
-
 	async createComment({ params, body }, res){
 
 		const { ideaId } = params;
@@ -35,11 +31,11 @@ class CommentController{
 		return res.send( await commentService.delete( commentId ) );
 	}
 
-	async getIdeaComments({ params }, res){
+	async getIdeasComments({ params }, res){
 
 		const { ideaId } = params;
 
-		return res.send( await commentService.getIdeaComments( ideaId ) );
+		return res.send( await commentService.getIdeasComments( ideaId ) );
 	}
 
 }

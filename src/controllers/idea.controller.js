@@ -39,9 +39,11 @@ class IdeaController{
 		return res.send( await ideaService.getUserIdeas( userId ) );
 	}
 
-	async voteIdeas({ params }, res){
+	async voteIdeas({ params, body }, res){
 
-		const { userId, like } = params;
+		const { like } = body;
+
+		const { userId } = params;
 
 		return res.send( await ideaService.voteIdeas( userId, like ) );
 	}
