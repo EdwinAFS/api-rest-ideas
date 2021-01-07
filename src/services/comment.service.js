@@ -1,6 +1,6 @@
 const BaseService = require("./base.service");
-const commentRepository = null;
-const ideaRepository = null;
+let commentRepository = null;
+let ideaRepository = null;
 
 class CommentService extends BaseService{
 
@@ -14,7 +14,7 @@ class CommentService extends BaseService{
 		return await commentRepository.getUserIdeas( author );
 	}
 
-	async getIdeaComments( ideaId ){
+	async getIdeasComments( ideaId ){
 		if(! ideaId ){
 			const error = new Error("the id is require");
 			error.status = 400;

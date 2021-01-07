@@ -1,5 +1,5 @@
 const BaseService = require("./base.service");
-const userRepository = null;
+let userRepository = null;
 
 class UserService extends BaseService{
 
