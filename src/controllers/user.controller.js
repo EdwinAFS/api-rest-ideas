@@ -11,7 +11,8 @@ class UserController{
 	}
 
 	async getAll(req, res){
-		return res.send( await userService.getAll() );
+		const { pagSize, pagNum } = req.query;
+		return res.send( await userService.getAll(pagSize, pagNum) );
 	}
 
 	async update({ params, body }, res){

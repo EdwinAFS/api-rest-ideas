@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
-const { NotFoundMiddleware, ErrorMiddleware } = require("../middlewares");
+const { NotFoundMiddleware, ErrorMiddleware, ParseIntMiddleware } = require("../middlewares");
 require("express-async-errors");
 
 module.exports = ({ HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes, AuthRoutes }) => {
@@ -14,6 +14,8 @@ module.exports = ({ HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes, AuthRoute
 		.use(cors())
 		.use(helmet())
 		.use(compression());
+
+	apiRouter.use(ParseIntMiddleware);
 
 	apiRouter.use('/home', HomeRoutes);
 	apiRouter.use('/user', UserRoutes);

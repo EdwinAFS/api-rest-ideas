@@ -11,7 +11,9 @@ class IdeaController{
 	}
 
 	async getAll(req, res){
-		return res.send( await ideaService.getAll() );
+		const { pagSize, pagNum } = req.query;
+
+		return res.send( await ideaService.getAll(pagSize, pagNum) );
 	}
 
 	async create({ body }, res){
