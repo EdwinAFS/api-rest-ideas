@@ -17,11 +17,12 @@ module.exports = ({ HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes, AuthRoute
 
 	apiRouter.use(ParseIntMiddleware);
 
+	apiRouter.use('/auth', AuthRoutes);
+
 	apiRouter.use('/home', HomeRoutes);
 	apiRouter.use('/user', UserRoutes);
 	apiRouter.use('/idea', IdeaRoutes);
 	apiRouter.use('/comment', CommentRoutes);
-	apiRouter.use('/auth', AuthRoutes);
 
 	router.use('/v1/api', apiRouter);
 

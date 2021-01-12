@@ -1,5 +1,6 @@
 const { generateToken } = require("./jwt.helper");
 
 module.exports = {
-	jwtHelper: generateToken
+	jwtHelper: generateToken,
+	CACHE_TIME: require("./cache-time.helper")
 }
