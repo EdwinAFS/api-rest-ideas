@@ -1,6 +1,6 @@
-const container = require("./src/server/container");
 require("./src/config");
 
+const container = require("./src/server/container");
 const server = container.resolve("server");
 
 const mongoose = require("mongoose");
